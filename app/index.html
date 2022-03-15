@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline'"> 
+    <title>ImageShrink</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="main-body">
+    <header class="main-header">
+        <button class="home-button" onclick="setOpenSection(this,'home')"><img src="media/home.png"><h1>Raja</h1></button>
+        <nav class="area-button-nav">
+            <button class="area-button" onclick="setOpenSection(this,'form')">Entrada</button>
+            <button class="area-button" onclick="setOpenSection(this,'info')">Info</button>
+            <button class="area-button" onclick="setOpenSection(this,'view')">Visualizar</button>
+            <button class="area-button" onclick="setOpenSection(this,'tools')">Ferramentas</button>
+        </nav>
+    </header>
+    <div class='content'>
+        <section class="main-page-section" id="home-section">
+            <p>Aqui, algum dia, vão ter gráficos e coisas úteis de alguma forma!</p>
+            <div class="table-wrapper">
+                <table class="resizable-table" style="width: 100%;">
+                    <tr>
+                        <td>data</td>
+                        <td>data</td>
+                        <td>data</td>
+                        <td>data</td>
+                        <td>data</td>
+                        <td>data</td>
+                        <td>data</td>
+                        <td>data</td>
+                        <td>data</td>
+                        <td>data</td>
+                        <td>data</td>
+                        <td>data</td>
+                        <td>data</td>
+                        <td>data</td>
+                        <td>data</td>
+                        <td>data</td>
+                    </tr>
+                    <tr>
+                        <td>data</td>
+                        <td>data</td>
+                        <td>data</td>
+                        <td>data</td>
+                        <td>data</td>
+                        <td>data</td>
+                        <td>data</td>
+                        <td>data</td>
+                        <td>data</td>
+                        <td>data</td>
+                        <td>data</td>
+                        <td>data</td>
+                        <td>data</td>
+                        <td>data</td>
+                        <td>data</td>
+                        <td>data</td>
+                    </tr>
+                    <tr>
+                        <td>data</td>
+                        <td>data</td>
+                        <td>data</td>
+                        <td>data</td>
+                        <td>data</td>
+                        <td>data</td>
+                        <td>data</td>
+                        <td>data</td>
+                        <td>data</td>
+                        <td>data</td>
+                        <td>data</td>
+                        <td>data</td>
+                        <td>data</td>
+                        <td>data</td>
+                        <td>data</td>
+                        <td>data</td>
+                    </tr>
+                </table>
+            </div>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque optio quam doloribus sint necessitatibus quod in quia libero. Labore molestiae illum repellendus doloremque facere excepturi ex suscipit. Ab, assumenda sint?
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro quaerat, odio et corporis temporibus rem, magni enim placeat ullam magnam distinctio ipsum fugiat ab vero iusto quos accusamus, voluptate illum.
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati voluptatibus saepe possimus laboriosam ipsa impedit quo voluptas officia, dolor vero quod explicabo rem provident adipisci laborum praesentium. Debitis, aliquid in!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem quasi debitis exercitationem ex quidem blanditiis aliquam quam! Totam ipsam, delectus eius, rem neque est distinctio natus ipsa veritatis, voluptas alias.
+            </p>
+        </section>
+        <section class="main-page-section hidden" id="form-section">
+            <form>
+                <!-- Prevent implicit submission of the form -->
+                <button type="submit" disabled style="display: none" aria-hidden="true"></button>
+                
+                <label for="form-suplier-name-input">
+                    Nome do Fornecedor
+                    <div id="suplier-search" class="searchable-dropdown">
+                        <label class="search-box">
+                            <img src="media/search-icon.png" class="search-icon">
+                            <input type="text" id="form-suplier-name-input" placeholder="Fornecedor" name="Suplier">
+                            <div class="clear-search-button">
+                                <img src="media/x.png" class="clear-search-icon">
+                            </div>
+                            <div class="dropdown-search-results">
+                                
+                            </div>
+                        </label>
+                    </div>
+                </label>
+                
+                <div id="form-numeric-collective">
+                    <label for="expense-date">
+                        Data de compra
+                        <input type="date" placeholder="dd-mm-yyyy" name="expense-date" id="expense-date">
+                    </label>
+    
+                    <label for="form-nf-input" class="nf-input">
+                        Nota Fiscal
+                        <input value="000000" type="number" min="0" id="form-nf-input" name="form-nf-input">
+                    </label>
+    
+                    <label for="form-value-input">
+                        Valor R$
+                        <input value="0,00" type="text" name="form-value-input" id="form-value-input">
+                    </label>
+                </div>
+                
+                <label for="form-description-input">
+                    Observações
+                    <textarea name="form-description-input" id="form-description-input" oninput="auto_grow(this)"></textarea>
+                </label>
+                <div id="form-foot">
+                    <div id="form-dropdown-collection">
+                        <label for="form-sector-input">
+                            Setor
+                            <select name="form-sector-input" id="form-sector-input"></select>
+                        </label>
+        
+                        <label for="form-payment-input">
+                            Pagamento
+                            <select name="form-payment-input" id="form-payment-input"></select>
+                        </label>
+        
+                        <label for="form-inbox-input">
+                            Caixa
+                            <select name="form-inbox-input" id="form-inbox-input"></select>
+                        </label>
+                    </div>
+                    <input type="submit">
+                </div>
+                    
+                
+            </form>
+        </section>
+        <section class="main-page-section hidden" id="info-section">
+            <p>Aqui, algum dia, vai ter acesso a info util</p>
+        </section>
+        <section class="main-page-section hidden" id="view-section">
+            <header id="view-sector-header">
+                <label for="view-table-search">
+                    buscar
+                    <input type="text" name="view-table-search" id="view-table-search">
+                </label>
+                <label for="view-table-items-per-page">
+                    Compras por página:
+                </label>
+                <input type="number" name="view-table-items-per-page" id="view-table-items-per-page" value="40" min="5">
+                <div class="view-table-up-down">
+                    <button onclick="viewTablePageUp()">^</button><button onclick="viewTablePageDown()">v</button>
+                </div>
+            </header>
+            <div id="view-table-wrapper">
+                <table id="view-table" class="resizable-table"></table>
+            </div>            
+        </section>
+        <section class="main-page-section hidden" id="tools-section">
+            <p>Aqui, algum dia, vão ter as ferramentas extras</p>
+        </section>
+    </div>
+    <script src="js/general.js"></script>
+    <script src="js/searchbox.js"></script>
+    <script src="js/home/view.js"></script>
+    <script src="js/home/index.js"></script>
+    <script src="js/home/form.js"></script>
+    
+</body>   
+</html>

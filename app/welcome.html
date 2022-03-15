@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline'"> 
+	<link rel="stylesheet" href="style.css">
+	<title>Raja</title>
+</head>
+<body>
+	<div class="welcome-content">
+		<header>
+			<h1>Bem vindo a Raja!</h1>
+		</header>
+		<section id="greetings-section" class="welcome-section">
+			<p>Esse programa permite que você salve e analise dados de gastos feitos pelas suas empresas.</p>
+			<p>Por favor, escolha um método de início:</p>
+			<nav class="starting-method-nav">
+				<button id="new-user-button">Novo usuário</button>
+				<button id="locate-button">Localizar arquivo</button>
+				<button id="data-import-button">Importar dados</button>
+			</nav>
+		</section>
+		<section id="locate-section" class="welcome-section hidden">
+			<button class="return-button" onclick="ReturnToMethodSelection()">Voltar</button>
+			<form id="location-form">
+				<label for="location-nf-accuracy-slider">Dígitos mostrados da Nota Fiscal:</label>
+				<div class="range-container">
+					<input type="range" min="4" max="19" value="6" class="slider" id="location-nf-accuracy-slider">
+					<label for="location-nf-accuracy-slider" class="range-bullet"><span>6</span></label>
+				</div>
+				<input type="submit" id="location-submit" value="Localizar base de dados">
+			</form>
+		</section>
+		<section id="data-import-section" class="welcome-section hidden">
+			<button class="return-button" onclick="ReturnToMethodSelection()">Voltar</button>
+			<p>Se você já possui dados em algum formato compatível</p>
+			<button class="storage-save-location-input">
+				<p>Local da nova base de dados:</p>
+				<p class="storage-save-location-input-result"></p>
+			</button>
+			<div id="data-import-models">
+				<div id="data-import-select-column">
+					<input type="radio" id="aldeia-select" name="data-import-select" class="data-import-select" value="aldeia">
+					<label for="aldeia-select">
+						Financeiro Aldeia
+					</label>
+					<input type="radio" id="new-select" name="data-import-select" class="data-import-select" value="new">
+					<label for="new-select">
+						Novo
+					</label>	
+				</div>
+				<div id="data-import-forms-column">
+					<form id="data-import-aldeia-form" class="data-import-form hidden">
+						<div>
+							<label class="file-input aldeia-import-button">
+								<h1>Compras</h1>
+								<p>escolher arquivo</p>
+								<input type="file" name="financeiro-aldeia-compras" id="financeiro-aldeia-compras-input" accept="csv">
+							</label>
+							<label class="file-input aldeia-import-button">
+								<h1>Fornecedores</h1>
+								<p>escolher arquivo</p>
+								<input type="file" name="financeiro-aldeia-fornecedores" id="financeiro-aldeia-fornecedores-input" accept="csv">
+							</label>
+						</div>
+						<label for="aldeia-nf-accuracy-slider">Dígitos mostrados da Nota Fiscal:</label>
+						<div class="range-container">
+							<input type="range" min="4" max="19" value="6" class="slider" id="aldeia-nf-accuracy-slider">
+							<label for="aldeia-nf-accuracy-slider" class="range-bullet"><span>6</span></label>
+						</div>
+						<input type="submit" id="aldeia-submit" value="Importar!">
+					</form>		
+				</div>
+				<form id="data-import-new-form" class="data-import-form hidden">bbb</form>	
+			</div>
+		</section>
+		<section id='new-user-section' class="welcome-section hidden">
+			<button class="return-button" onclick="ReturnToMethodSelection()">Voltar</button>
+			<p>Em cada compra, são armazenados os seguintes dados:</p>
+			<ul>
+				<li>Forncecedor</li>
+				<li>Valor</li>
+				<li>Data</li>
+				<li>Data de edição</li>
+				<li>Nota fiscal</li>
+				<li>Empresa</li>
+				<li>Setor</li>
+				<li>Caixa</li>
+				<li>Modo de pagamento</li>
+				<li>Descrição</li>
+			</ul>
+			<form id="new-user-form">
+				<h2>Configurações iniciais</h2>
+				<h3>Você pode mudá-las depois</h3>
+				
+				<p>Quais empresas e setores você irá controlar?</p>
+				<div class="companies-sectors-tree" id="initial-companies-sectors-tree">				
+					<div id="companies-sectors-tree-companies-buttons">
+						<button type='button' onclick="addCompany()">+</button>
+						<button type='button' onclick="removeCompany()">-</button>
+					</div>
+				</div>
+				<p>Caixas de entrada</p>
+				<div id="inbox-list">
+					<div id="inbox-list-buttons">
+						<button type='button' onclick="addInboxOption()">+</button>
+						<button type='button' onclick="removeInboxOption()">-</button>
+					</div>
+				</div>
+				<p>Métodos de pagamento aceitos:</p>
+				<div id="payment-list">
+					<div id="payment-list-buttons">
+						<button type='button' onclick="addPaymentOption()">+</button>
+						<button type='button' onclick="removePaymentOption()">-</button>
+					</div>
+				</div>
+				<label for="nf-accuracy-slider">Dígitos mostrados da Nota Fiscal:</label>
+				<div class="range-container">
+					<input type="range" min="4" max="19" value="6" class="slider" id="nf-accuracy-slider">
+					<label for="nf-accuracy-slider" class="range-bullet"><span>6</span></label>
+				</div>
+				<button type="button" class="storage-save-location-input">
+					<p>Local da base de dados:</p>
+					<p class="storage-save-location-input-result" id="initial-storage-save-location-result"></p>
+				</button>
+				<input type="submit" value="Iniciar">
+			</form>
+		</section>
+	</div>
+	<script src="js/general.js"></script>
+	<script src="js/welcome/welcome.js"></script>
+	<script src="js/welcome/import_data.js"></script>
+	<script src="js/welcome/new_user.js"></script>
+
+</body>
+</html>

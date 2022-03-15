@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline'"> 
+	<link rel="stylesheet" href="style.css">
+	<title>Raja</title>
+</head>
+<body>
+	<div class="welcome-content">
+		<header>
+			<h1>Bem vindo a Raja!</h1>
+		</header>
+		<section id="greetings-section" class="welcome-section">
+			<p>Esse programa permite que você salve e analise dados de gastos feitos pelas suas empresas.</p>
+			<p>Por favor, escolha um método de início:</p>
+			<nav class="starting-method-nav">
+				<button id="new-user-button">Novo usuário</button>
+				<button id="locate-button">Localizar arquivo</button>
+				<button id="data-import-button">Importar dados</button>
+			</nav>
+		</section>
+		<section id="locate-section" class="welcome-section hidden">
+			<button class="return-button" onclick="ReturnToMethodSelection()">Voltar</button>
+
+		</section>
+		<section id="data-import-section" class="welcome-section hidden">
+			<button class="return-button" onclick="ReturnToMethodSelection()">Voltar</button>
+			<p>Se você já possui dados em formato compatível</p>
+			<button class="storage-save-location-input">
+				<p>Local da base de dados:</p>
+				<p class="storage-save-location-input-result"></p>
+			</button>
+			<p>Modelos compatíveis:</p>
+			<div id="import-type">
+				<button class="import-type-header">
+					Financeiro Aldeia
+				</button>
+				<input type="file" name="financeiro-aldeia-fornecedores" id="financeiro-aldeia-fornecedores-input" accept="csv">
+				<input type="file" name="financeiro-aldeia-compras" id="financeiro-aldeia-compras-input" accept="csv">
+			</div>
+			
+
+
+		</section>
+		<section id='new-user-section' class="welcome-section hidden">
+			<button class="return-button" onclick="ReturnToMethodSelection()">Voltar</button>
+			<p>Em cada compra, são armazenados os seguintes dados:</p>
+			<ul>
+				<li>Forncecedor</li>
+				<li>Valor</li>
+				<li>Data</li>
+				<li>Nota fiscal</li>
+				<li>Empresa</li>
+				<li>Setor</li>
+			</ul>
+			<p>Quais empresas e setores você irá controlar?</p>
+			<form id="companies-sectors-form" onsubmit="">
+				<table>
+					<thead>
+						<tr>
+							<th>Empresas</th>
+							<th>Setores</th>
+						</tr>
+					</thead>
+					<tbody>
+					</tbody>
+					<tfoot>
+						<tr>
+							<td class="up-down-buttons">
+								<button type='button' onclick="addCompany()">+</button>
+								<button type='button' onclick="removeCompany()">-</button></tr>
+							</td>
+						</tr>
+					</tfoot>
+				</table>
+				<input type="submit" id="companies-sectors-form-submit-button" value="Confirmar">
+			</form>
+		</section>
+	</div>
+	<script src="js/general.js"></script>
+	<script src="js/welcome/welcome.js"></script>
+	<script src="js/welcome/import_data.js"></script>
+	<script src="js/welcome/new_user.js"></script>
+</body>
+</html>
