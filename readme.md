@@ -1,7 +1,3 @@
-The simplest electron boilerplate that I use to create my applications.
+# Raja
 
-To get started:
-
-npm install
-npm start
-"# Raja" 
+Um programa de controle financeiro, em desenvolvimento
